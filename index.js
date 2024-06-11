@@ -2,11 +2,12 @@ import express from "express";
 import axios from "axios";
 import bodyParser from "body-parser";
 import morgan from "morgan";
+import dotenv from "dotenv"
 
 const app = express();
 const port = 3000;
 const API_URL = "https://secrets-api.appbrewery.com";
-
+dotenv.config()
 
 
 // HINTs: Use the axios documentation as well as the video lesson to help you.
@@ -15,7 +16,7 @@ const API_URL = "https://secrets-api.appbrewery.com";
 // https://secrets-api.appbrewery.com/
 
 //TODO 1: Add your own bearer token from the previous lesson.
-const yourBearerToken = "62672862-42b2-4bd0-a76a-da8c9e5f4ac3";
+const yourBearerToken = process.env.yourBearerToken;
 const config = {
   headers: { Authorization: `Bearer ${yourBearerToken}` },
 };
